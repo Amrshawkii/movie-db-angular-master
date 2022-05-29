@@ -1,0 +1,58 @@
+<div [class.dark-theme]="isDarkTheme">
+  <div class="col-12 header-styles">
+    <div class="row">
+      <div class="col-6">
+        <h1 class="text-left">{{title}}</h1>
+      </div>
+      <div class="col-6 text-right">
+        <mat-slide-toggle
+          class="example-margin"
+          color="warn"
+          [checked]="isDarkTheme"
+          (change)="setTheme($event)">
+            Theme
+        </mat-slide-toggle>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-12"> -->
+      <mat-card class="col-12 card-gaps" id="search">  
+        <mat-card-content>
+          <h2>Search for your favourite title</h2>
+          <app-movie-search (titleSubmit)="getDetails($event,'title')"></app-movie-search>
+        </mat-card-content>  
+      </mat-card>
+
+      <div class="col-12 card-gaps" *ngIf="showDetails">
+        <app-movie-details class="" [searchTitle]="searchTitle" [year]="searchYear" [type]="searchType" *ngIf="searchTitle && !isSearchList" (setList)="searchForList()" (showSeasons)="loadSeasons($event)"></app-movie-details>
+
+        <mat-card class="row" *ngIf="searchTitle && isSearchList">  
+          <mat-card-content>
+            <app-search-list [searchTitle]="searchTitle" (onSearchSelect)="getDetails($event,'imdb')"></app-search-list>
+          </mat-card-content>  
+        </mat-card>
+      </div>
+
+
+      <div class="col-12 card-gaps">
+        <router-outlet></router-outlet>
+      </div>
+        
+    </div>
+  </div>
+</div>
+
+<button mat-fab color="accent" class="options-button" aria-label="Options Button" *ngIf="showOption" (click)="showOptions = !showOptions">
+  <mat-icon>settings</mat-icon>
+</button>
+
+<button mat-mini-fab color="primary" class="options-button" style="bottom: 93px; right: 35px;" aria-label="Options Button" *ngIf="showOption && showOptions" (click)="goToSearch()">
+  <mat-icon>search</mat-icon>
+</button>
+
+<button mat-mini-fab color="primary" class="options-button" style="bottom: 140px; right: 35px;" aria-label="Options Button" *ngIf="showOption && showOptions" (click)="isDarkTheme = !isDarkTheme; setTheme()">
+  <mat-icon>palette</mat-icon>
+</button>

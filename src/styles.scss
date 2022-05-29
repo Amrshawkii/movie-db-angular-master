@@ -1,0 +1,159 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../node_modules/bootstrap/scss/mixins/breakpoints.scss';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import '../node_modules/@angular/material/theming.scss';
+
+@include mat-core();
+
+// DARK THEME
+$dark-primary: mat-palette($mat-teal);
+$dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+$dark-warn:    mat-palette($mat-deep-orange);
+$dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+.light-body {
+    background-image: linear-gradient(90deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    background-color: #1fc8db;
+}
+
+.card-gaps {
+    margin: 10px 0;
+}
+
+.marginTop-10 {
+    margin-top: 10px;
+}
+
+a {
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 36px;
+}
+.center {
+    margin: 0 auto;
+}
+.full-width{
+    width: 100%;
+}
+.no-margin {
+    margin: 0;
+}
+
+.list-card{
+    margin: 10px 0;
+
+    .mat-card {
+        cursor: pointer;
+        &:hover {
+            border: 1px solid #007bff;
+        }
+    }
+
+    h4 {
+        height: 50px;
+        overflow: hidden;
+    }
+
+    .mat-card-image {
+        height: 300px;
+    }
+}
+
+.short-details {
+    h4 {
+        border-bottom: 1px solid #000;
+    }
+}
+
+.search-list-link {
+    margin-top: 20px;
+
+    a {
+        font-size: 16px;
+    }
+}
+
+.mat-slide-toggle-bar {
+    background-color: #6a6a6a;
+}
+
+.icon-color {
+    color: #3f51b5;
+}
+
+.icon-danger-color {
+    color: red;
+}
+.icon-position {
+    position: absolute;
+    bottom: 10px;
+}
+
+.icon-text {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+@include media-breakpoint-down(xs) { 
+
+    .short-details{
+        margin-top: 20px;
+    }
+
+    .list-card{   
+        .mat-card-image {
+            height: auto;
+        }
+    }
+}
+@include media-breakpoint-down(sm) { 
+    .movie-form-field {
+        margin-bottom: 20px;
+    }
+}
+@include media-breakpoint-up(lg) { 
+    .list-card{   
+        .mat-card-image {
+            height: 350px;
+        }
+    }
+}
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+// DARK THEME Declearation
+.dark-theme {
+    @include angular-material-theme($dark-theme);
+
+    .list-card .mat-card {
+        background-color: #232323;
+    }
+
+    .short-details {
+        h4 {
+            border-color: #fff;
+        }
+    }
+
+    .icon-color {
+        color: #009688;
+    }
+
+    .table {
+        color: #fff;
+    }
+}
+
+.dark-body {
+    background-image: linear-gradient(90deg, #282828 0%, #252625 51%, #222222 75%);
+    background-color: #222222;
+}

@@ -1,0 +1,92 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Actors, Directors, Writers
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <td><strong>Actors</strong></td>
+          <td>
+            <p *ngFor="let actor of details.ActorsArr">{{actor}}</p>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Directors</strong></td>
+          <td><p>{{details.Director}}</p></td>
+        </tr>
+        <tr>
+          <td><strong>Writers</strong></td>
+          <td>
+            <p *ngFor="let writer of details.WriterArr">{{writer}}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+</mat-expansion-panel>
+
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Genre, Released, Runtime, Country
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <td><strong>Genre</strong></td>
+          <td>
+            <p *ngFor="let genre of details.GenreArr">{{genre}}</p>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Released</strong></td>
+          <td><p>{{details.Released}}</p></td>
+        </tr>
+        <tr>
+          <td><strong>Runtime</strong></td>
+          <td><p>{{details.Runtime}}</p></td>
+        </tr>
+        <tr>
+          <td><strong>Country</strong></td>
+          <td><p>{{details.Country}}</p></td>
+        </tr>
+      </tbody>
+    </table>
+
+</mat-expansion-panel>
+
+
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Awards, Ratings
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <td><strong>Awards</strong></td>
+          <td><p>{{details.Awards}}</p></td>
+        </tr>
+        <tr>
+          <td><strong>Ratings</strong></td>
+          <td>
+            <p *ngFor="let rating of details.Ratings"><strong>{{rating.Source+": "}}</strong>{{rating.Value}}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+</mat-expansion-panel>
